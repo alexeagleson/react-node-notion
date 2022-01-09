@@ -33,9 +33,9 @@ Connect on [http://localhost:3000/]()
 
 # Tutorial
 
-All code from this tutorial as a complete package is available in [this repository](https://github.com/alexeagleson/react-node-notion).  If you find this tutorial helpful, please share it with your friends and colleagues!
+All code from this tutorial as a complete package is available in [this repository](https://github.com/alexeagleson/react-node-notion).  
 
-For more tutorials like this, follow me <a href="https://twitter.com/eagleson_alex?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">@eagleson_alex</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> on Twitter
+If you find this tutorial helpful, please share it with your friends and colleagues!  For more like it you can subscribe on [Youtube](https://www.youtube.com/channel/UCV5YqK3AaInd3lYFQqlp7Lw) or follow me on [Twitter](https://twitter.com/eagleson_alex).
 
 ## Introduction
 
@@ -530,6 +530,8 @@ Go ahead, try changing some text in your DB and hitting the button again.
 
 Well that's pretty neat!  Now that you know how to do this, what cool projects can you think to build?
 
+Remember that all code from this tutorial as a complete package is available in [this repository](https://github.com/alexeagleson/react-node-notion).  
+
 Please check some of my other learning tutorials.  Feel free to leave a comment or question and share with others if you find any of them helpful:
 
 - [How to use Node.js to backup your personal files](https://dev.to/alexeagleson/how-to-use-nodejs-to-backup-your-personal-files-and-learn-some-webdev-skills-along-the-way-541a)
@@ -562,4 +564,4 @@ Please check some of my other learning tutorials.  Feel free to leave a comment 
 
 ---
 
-For more tutorials like this, follow me <a href="https://twitter.com/eagleson_alex?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">@eagleson_alex</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> on Twitter.
+If you find this tutorial helpful, please share it with your friends and colleagues!  For more like it you can subscribe on [Youtube](https://www.youtube.com/channel/UCV5YqK3AaInd3lYFQqlp7Lw) or follow me on [Twitter](https://twitter.com/eagleson_alex).
