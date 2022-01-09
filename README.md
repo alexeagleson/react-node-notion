@@ -1,26 +1,107 @@
-## WHAT IS NOTION
 
+# Running the Project
 
-## Initial Setup
+## Create an env file with your Notion credentials
+
+Create a `server/.env` file:
+
 ```
-mkdir react-node-notion
-
-cd react-node-notion
-
-npx create-react-app@latest sample-app --template typescript
+NOTION_SECRET=
+NOTION_DATABASE_ID=
 ```
 
-Then change directory into the React app and run:
+See [Creating a Notion Integration](#creating-a-notion-integration) for information on how to get these values.
+
+## Run the server
+
+From the `/server` directory:
 
 ```
 npm run start
 ```
 
-And confirm you can see the sample app before continuing.
+## Run the app
 
-## Create Notion Page
+From the `/sample-app` directory:
 
-Next we are going to create our Notion database.  Navigate to:
+```
+npm run start
+```
+
+Connect on [http://localhost:3000/]()
+
+
+# Tutorial
+
+All code from this tutorial as a complete package is available in [this repository](https://github.com/alexeagleson/react-node-notion).  If you find this tutorial helpful, please share it with your friends and colleagues!
+
+For more tutorials like this, follow me <a href="https://twitter.com/eagleson_alex?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">@eagleson_alex</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> on Twitter
+
+## Introduction
+
+Recently I discovered that [Notion](https://www.notion.so/product) provides an API to read and modify data on your Notion workspace.  
+
+They also have fantastic support for simple databases (even relational ones) so I thought it would be fun to try a little app that could use Notion as a quick and dirty CMS, and I had a lot of fun doing it, so I thought I would write up a little tutorial to share the process with others.  
+
+I want to be clear that I am absolutely **not** advocating for the use of Notion as a real database for a production application.  Not only do I not know anything about the actual speed and performance of querying it at any scale, I also wouldn't trust any critical data on an cloud service like that that isn't specifically designed to offer a reliability guarantee.
+
+That said for fun little projects I think it's a great option, especially for front end developers who don't have a lot of existing knowledge about databases and just want to get their feet wet.
+
+It can also be a great way to collaborate with less technical folks and allow them the flexibility that Notion offers for creating content, and giving developers the ability to directly reference that content in code.
+
+So without further delay, let's play around with it.
+
+## Table of Contents
+
+1. [What is Notion?](#what-is-notion)
+1. [Project Setup](#project-setup)
+1. [Creating a Notion Database](#creating-a-notion-database)
+1. [Creating the Server](#creating-the-server)
+1. [Querying the Server](#querying-the-server)
+1. [Creating a Notion Integration](#creating-a-notion-integration)
+1. [Querying the Database](#querying-the-database)
+1. [Connecting the App](#connecting-the-app)
+1. [Wrapping Up](#wrapping-up)
+
+## What is Notion?
+
+Before we jump in I want to explain quickly a little bit what [Notion](https://www.notion.so/product) is.
+
+It's basically an organizational tool that runs in the cloud and supports multiple user collaboration at the same time.  It can be used for anything from organizing daily tasks, keeping track of school schedules, to managing the documentation of large organizational products.  
+
+Basically if you want to "organize" any kind of information, Notion is a great tool for that.  
+
+Similar products you might be familiar with would be something like Confluence, Evernote or OneNote.  
+
+{% youtube https://youtu.be/oTahLEX3NXo %}
+
+## Project Setup
+
+The structure of our project will be:
+
+React App -> Node server -> Notion database
+
+The reason we need the Node server is because if we were to query directly from our React app,  we would have to expose our Notion account credentials and secret/database ID.  Anything on the client side is always visible to the user.
+
+By querying on the server we can keep the credentials there, out of reach of the front end, and only provide the database table data itself to the front end. 
+
+We'll begin by creating the project directory and React app.  We're using [Create React App](https://reactjs.org/docs/create-a-new-react-app.html) here as it's still the simplest way to get an instant React project up and running with minimal complexity:
+
+```
+mkdir react-node-notion
+cd react-node-notion
+npx create-react-app@latest sample-app --template typescript
+cd sample-app
+npm run start
+```
+
+Make sure you are able to see the example React app on [http://localhost:3000/]() before you continue.  
+
+## Creating a Notion Database
+
+Next we are going to create our Notion workspace and database.  
+
+Navigate to:
 
 [https://www.notion.so/]()
 
@@ -49,11 +130,9 @@ Populate the DB with whatever data suits you best.  Here's mine:
 ![Final Database](https://res.cloudinary.com/dqse2txyi/image/upload/r_10,bo_3px_solid_darkgrey/v1641688013/blogs/notion-cms/final-database_qs1zxb.png)
 
 
-## Create the Server
+## Creating the Server
 
-We will need a server to query the data and provide it to our React app.  We don't want to query the data directly from the React app since we would have to expose our Notion account secret and database ID, which would make them visible to any user of our site.
-
-We'll just spin up a super simple Node server to serve the data.  All we need is the `http` module and the Notion client library from NPM.  
+We're next going to spin up a super simple Node server to serve the data.  All we need is the `http` module and the Notion client library from NPM.  
 
 Let's begin with just the server and confirm we can query the data before we add the Notion integration:
 
@@ -135,7 +214,7 @@ npx tsc && node dist/server.js`
 
 That says "run typescript and then use Node to run the resulting Javascript file it creates in the output folder".  
 
-## Querying the Server from the React App
+## Querying the Server
 
 Navigate back to the `sample-app` directory and open the `src` directory.  We can delete `App.css` and the `logo.svg` file.  
 
@@ -202,7 +281,7 @@ Notice the `{ data: "success" }` response there in the console.  Great!
 
 Our React app is connected to our server and we can query basic data.  Let's get Notion hooked up.
 
-## Create a Notion Integration
+## Creating a Notion Integration
 
 Before you can query data from your Notion account you need to create an _integration_ that has the necessary permissions.  You can configure integrations to have different permissions like read/write/insert depending on who you are sharing the integration secret with.
 
@@ -236,7 +315,7 @@ In the above example your `database id` is the `aaaaaaaaaaaaaaaaaaaaaa` part bef
 
 You now have everything you need to query the data.  Back to the Node server.
 
-## Query the Database from Node.js
+## Querying the Database
 
 We are going to need a secure place to store our Notion secret and database ID.  If we put them in our code they will become visible to anyone who checks the source when we push to a remote repository.  To get around this we will store our credentials in a `.env.` file.
 
@@ -379,11 +458,13 @@ Should be good!  We'll start the server with the new script we made in `package.
 npm run start
 ```
 
+## Connecting the App
+
 A quick jump back into the React app and hit that "Fetch Data" button again.  If everything went well you will be greeted with the content of your database in your browser console:
 
 ![React Notion Query](https://res.cloudinary.com/dqse2txyi/image/upload/r_10,bo_3px_solid_darkgrey/v1641691474/blogs/notion-cms/notion-react-query_kdwswh.png)
 
-You've now got the data in your React app, you can do whatever you want with it!  We could probabaly wrap up the tutorial here, but let's make one final step of turning the data into an actual list of links:
+You've now got the data in your React app, you can do whatever you want with it!  We could probably wrap up the tutorial here, but let's make one final step of turning the data into an actual list of links:
 
 `sample-app/src/App.tsx`
 ```tsx

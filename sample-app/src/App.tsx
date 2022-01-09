@@ -36,7 +36,6 @@ function App() {
         {thingsToLearn.map((thing, idx) => {
           return (
             <li key={idx}>
-              {/* https://stackoverflow.com/questions/50709625/link-with-target-blank-and-rel-noopener-noreferrer-still-vulnerable */}
               <a href={thing.url} target="_blank" rel="noopener noreferrer">
                 {thing.label}
               </a>
