@@ -39,8 +39,8 @@ If you find this tutorial helpful, please share it with your friends and colleag
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
 1. [What is Notion?](#what-is-notion)
+1. [Introduction](#introduction)
 1. [Project Setup](#project-setup)
 1. [Creating a Notion Database](#creating-a-notion-database)
 1. [Creating the Server](#creating-the-server)
@@ -54,7 +54,9 @@ If you find this tutorial helpful, please share it with your friends and colleag
 
 Before we jump in I want to explain quickly a little bit what [Notion](https://www.notion.so/product) is.
 
-It's basically an organizational tool that runs in the cloud and supports multiple user collaboration at the same time.  It can be used for anything from organizing daily tasks, keeping track of school schedules, to managing the documentation of large organizational products.  
+It's basically an organizational tool that runs in the cloud and supports multiple user collaboration at the same time.  
+
+It can be used for anything from organizing daily tasks, keeping track of school schedules, to managing the documentation of large enterprise projects.  
 
 Basically if you want to "organize" any kind of information, Notion is a great tool for that.  
 
