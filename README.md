@@ -37,22 +37,9 @@ All code from this tutorial as a complete package is available in [this reposito
 
 If you find this tutorial helpful, please share it with your friends and colleagues!  For more like it you can subscribe on [Youtube](https://www.youtube.com/channel/UCV5YqK3AaInd3lYFQqlp7Lw) or follow me on [Twitter](https://twitter.com/eagleson_alex).
 
-## Introduction
-
-Recently I discovered that [Notion](https://www.notion.so/product) provides an API to read and modify data on your Notion workspace.  
-
-They also have fantastic support for simple databases (even relational ones) so I thought it would be fun to try a little app that could use Notion as a quick and dirty CMS, and I had a lot of fun doing it, so I thought I would write up a little tutorial to share the process with others.  
-
-I want to be clear that I am absolutely **not** advocating for the use of Notion as a real database for a production application.  Not only do I not know anything about the actual speed and performance of querying it at any scale, I also wouldn't trust any critical data on an cloud service like that that isn't specifically designed to offer a reliability guarantee.
-
-That said for fun little projects I think it's a great option, especially for front end developers who don't have a lot of existing knowledge about databases and just want to get their feet wet.
-
-It can also be a great way to collaborate with less technical folks and allow them the flexibility that Notion offers for creating content, and giving developers the ability to directly reference that content in code.
-
-So without further delay, let's play around with it.
-
 ## Table of Contents
 
+1. [Introduction](#introduction)
 1. [What is Notion?](#what-is-notion)
 1. [Project Setup](#project-setup)
 1. [Creating a Notion Database](#creating-a-notion-database)
@@ -74,6 +61,20 @@ Basically if you want to "organize" any kind of information, Notion is a great t
 Similar products you might be familiar with would be something like Confluence, Evernote or OneNote.  
 
 {% youtube https://youtu.be/oTahLEX3NXo %}
+
+## Introduction
+
+Recently I discovered that Notion provides an API to read and modify data on your Notion workspace.  
+
+They also have fantastic support for simple databases (even relational ones) so I thought it would be fun to try a little app that could use Notion as a quick and dirty CMS, and I had a lot of fun doing it, so I thought I would write up a little tutorial to share the process with others.  
+
+I want to be clear that I am absolutely **not** advocating for the use of Notion as a real database for a production application.  Not only do I not know anything about the actual speed and performance of querying it at any scale, I also wouldn't trust any critical data on an cloud service like that that isn't specifically designed to offer a reliability guarantee.
+
+That said for fun little projects I think it's a great option, especially for front end developers who don't have a lot of existing knowledge about databases and just want to get their feet wet.
+
+It can also be a great way to collaborate with less technical folks and allow them the flexibility that Notion offers for creating content, and giving developers the ability to directly reference that content in code.
+
+So without further delay, let's play around with it.
 
 ## Project Setup
 
